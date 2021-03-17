@@ -1,0 +1,274 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    font-family: 'Montserrat'
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0 auto;
+}
+
+header{
+    display: flex; /* pour alligner tout les composant du header*/
+    align-items: center; /* pour centrer les items entre eux*/
+    /*background-color: rgba(28, 148, 28, 0.473);*/
+    
+}
+
+
+
+header img{
+    width:100px;
+}
+
+section.top-page {
+    background-color: rgb(59, 59, 59);
+    /* background: url("../images/fond1.jpg"); */
+    /*background-size: cover; /*pour que le background couvre
+                              toute la page si on l'etire*/
+    height: 60vh;
+    padding: 20px; /*marge interieur*/
+}
+
+.landing-page{
+    position: relative;
+    padding: 20px 50px; /*marge interieur*/
+}
+
+.gros-titre{
+    color: white;
+    font-size: 80px; /*taille police*/
+    /* font-family: 'Abril Fatface'; *//*police */
+    font-weight: 500;   
+}
+
+.sous-titre{
+    color: rgb(202, 201, 201);
+    position: absolute;
+    bottom: 50px; 
+    font-weight: 600;
+}
+
+
+.scroll{
+    color: white;
+    text-decoration: none;
+ 
+   
+}
+
+/* menu de navigation */
+
+nav {
+    
+    display: flex;
+    justify-content: space-between; 
+    /*met de l'espace entre les items*/
+    list-style: none; /*retire les points devant les items*/
+    width:380px;
+    margin-left: 30px; /*marge exterieur gauche*/
+}
+
+.boutton-haut{
+    color: rgb(202, 201, 201);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------- index.php--------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+/* services */
+
+.services{
+    background-color: rgb(59, 59, 59); 
+}
+
+.icon-div{
+    padding: 30px ;
+    display :flex;
+    justify-content: space-evenly;
+    
+}
+.service-item{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.icon2{
+    font-size: 50px; 
+    color:rgb(202, 201, 201);
+}
+
+p{
+    color :rgb(202, 201, 201);
+}
+
+.text-icon{
+    font-weight: 600;
+    width: 200px;
+    text-align: center;
+}
+
+
+
+/* meilleurs agents*/ 
+.meilleurs-agents{
+    background-color: rgb(59, 59, 59);
+    background-size: cover; /*pour que le background couvre
+                              toute la page si on l'etire*/
+    height: 80vh;
+    padding: 20px; /*marge interieur*/
+    
+    /* background-image: url("../images/fond1.jpg"); */
+}
+.titre {
+    margin-left:30px;
+    font-size: 40px;
+    font-family: 'DM Serif Text', serif;
+    font-weight: 100;
+    position: relative;
+    color:rgb(255, 255, 255)
+}
+
+.titre::before{
+    content:"";
+    position: absolute;
+    background-color: rgb(202, 201, 201);
+    width: 50px;
+    height:7px;
+    bottom: 0;  
+}
+
+.div-best-agents{
+    
+    margin : 50px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; 
+    
+}
+
+.agent-box{
+    position: relative;
+}
+
+.agent-nom{
+    text-decoration: none;
+    color:black;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.agent-note{
+    color:black;
+}
+
+.agent-detail{
+    position: absolute;
+    padding: 0px 20px;
+  
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.61);
+    bottom: 0;
+    
+}
+
+
+/*bas de page*/
+
+.icon3{
+    font-size: 35px; 
+    
+}
+.image-bdp {
+    width:100px;
+}
+
+.payment-method{
+    width: 150px;
+}
+
+.bas-de-page{
+    background-color: rgb(59, 59, 59); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 200px;
+}
+
+.bas-de-page p{
+    color: black;
+}
+
+/*pieds de page*/
+
+hr{
+    background-color: rgb(105, 105, 105);
+    border:none;
+    display: block;
+    height: 1px;
+    margin: 0
+}
+
+footer{
+    background-color: rgb(59, 59, 59); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding : 0px 200px;
+    font-size: small;
+}
+
+footer p.copyright{
+    color:black;
+}
+
+footer a.cgv{
+    text-decoration: none;
+    color: black;
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------- form.php--------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.formulaire{
+    background-color: rgb(143, 38, 38); 
+    padding: 30px 60px;
+}
+
+.titre-form{
+    line-height: 3px;
+    font-size: 35px ;
+}
+
+h2{
+    color:  rgb(255, 255, 255);
+    font-weight: 400;
+}
+
+.form1{
+    padding: 0px 100px;
+}
+
+h3{
+    line-height: 50px;
+    color:  rgb(255, 255, 255);
+    font-weight: 400;
+    
+}
