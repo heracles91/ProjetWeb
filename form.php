@@ -6,9 +6,10 @@ include("fonctions.php");
     <head>
         
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>Formulaire de saisie utilisateur </title>
+        <title>S'inscrire en tant qu'agent</title>
     <link href="css/styles.css" rel="stylesheet" media="all" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js"></script>
+	<link rel="icon" type="image/x-icon" href="images/logo.ico" /><link rel="shortcut icon" type="image/x-icon" href="images/logo.ico" />
     </head>
     <body>
     <section class="top-page">
@@ -32,24 +33,39 @@ include("fonctions.php");
             <h2>Inscription</h2>
         </div>
 		<br>
-		<form class="form1" name="inscription" method="post" action="form.php">
-		<h3>Sexe
-		<SELECT name="nom_concours">
-			<OPTION>Homme
-			<OPTION>Femme	
-		</SELECT><br>
-		
-		Nom <input type="text" name="nom" /><br>
-		Prenom <input type="text" name="prenom" /><br>
-		Votre prix (par jour) <input type="text" name="prix" /><br>
-		Quelque chose que vous aimeriez que l'on sache : <br>
-        <input type="text" name="caracteristique" />
-		<!-- <input type="radio" name="categorie" value="student" />STUDENT<br>
-		<input type="radio" name="categorie" value="school" />School<br>
-		<input type="radio" name="categorie" value="other" />Other<br> -->
-		</h3>
-		<input type="submit" name="valider" value="SOUMETTRE" />
-		</form>
+		<fieldset style="border: 2px solid #000000ad;border-radius: 10px; padding: 10px 20px;">
+			<legend>Coordonnées</legend>
+			<table>
+				<form class="form1" name="inscription" method="post" action="form.php">
+				<h3>
+					Nom : <input type="text" name="nom" required autofocus/><br>
+					Prénom : <input type="text" name="prenom" required/><br>
+					Sexe : 
+					<SELECT name="nom_concours" required>
+						<OPTION value="null">Selectionner</OPTION>
+						<OPTION>Homme</OPTION>
+						<OPTION>Femme</OPTION>
+					</SELECT><br>
+					N° de téléphone : <input type="tel" required/><br>
+					Date de naissance : <input type="date"/><br>
+					Mail : <input type="email" required/><br>
+					Votre prix/jour : <input type="text" name="prix" required/><br>
+					Quelque chose que vous aimeriez que l'on sache : <br>
+					<textarea type="text" name="caracteristique" placeholder="Ex : Vos qualités/défauts" rows="5" cols="50"></textarea>
+					<!-- <input type="radio" name="categorie" value="student" />STUDENT<br>
+					<input type="radio" name="categorie" value="school" />School<br>
+					<input type="radio" name="categorie" value="other" />Other<br> -->
+					
+				</h3>
+				<input type="submit" name="valider" value="SOUMETTRE" />
+				</form>
+				</table>
+		</fieldset>
+		<fieldset style="border: 2px solid #000000ad;border-radius: 10px; padding: 10px 20px;">
+		<legend>Envoyez nous votre photo !</legend>
+		<input type="file" accept=".png, .jpg, .jpeg"/><br><br>
+		<input type="reset" value="Effacer"/>
+		</fieldset>
     </section>    
     
 	
