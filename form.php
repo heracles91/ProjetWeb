@@ -36,35 +36,62 @@ include("fonctions.php");
 		<fieldset style="border: 2px solid #000000ad;border-radius: 10px; padding: 10px 20px;">
 			<legend>Coordonnées</legend>
 			<table>
-				<form class="form1" name="inscription" method="post" action="form.php" enctype="multipart/form-data">
-					<h3>
-						Nom : <input type="text" name="nom" required autofocus/><br>
-						Prénom : <input type="text" name="prenom" required/><br>
-						Sexe : 
+				<form name="inscription" method="post" action="form.php" enctype="multipart/form-data">
+					<div>
+					<table>
+					<tr>
+						<td>Nom : </td>
+						<td><input type="text" name="nom" required autofocus/></td>
+					</tr><br>
+					<tr>
+						<td>Prénom : </td>
+						<td><input type="text" name="prenom" required/></td>
+					</tr><br>
+					<tr>
+						<td>Sexe : </td>
+						<td>
 						<SELECT name="sexe" required>
 							<OPTION value="null">Selectionner</OPTION>
 							<OPTION>Homme</OPTION>
 							<OPTION>Femme</OPTION>
-						</SELECT><br>
-						N° de téléphone : <input type="tel" required/><br>
-						Date de naissance : <input type="date"/><br>
-						Mail : <input type="email" required/><br>
-						Votre prix/jour : <input type="text" name="prix_journee" required/><br>
-						Quelque chose que vous aimeriez que l'on sache : <br>
-						<textarea type="text" name="caracteristique" placeholder="Ex : Vos qualités/défauts" rows="5" cols="50"></textarea>
+						</SELECT>
+						</td>
+					</tr><br>
+					<tr>
+						<td>N° de téléphone : </td>
+						<td><input type="tel" required/></td>
+					</tr><br>
+					<tr>
+						<td>Date de naissance : </td>
+						<td><input type="date"/></td>
+					</tr><br>
+					<tr>
+						<td>Mail : </td>
+						<td><input type="email" required/></td>
+					</tr><br>
+					<tr>
+						<td>Votre prix/jour : </td>
+						<td><input type="text" name="prix_journee" required/></td>
+					</tr><br>
+					<tr>
+						<td>Quelque chose que vous aimeriez que l'on sache : </td>
+						<td><textarea type="text" name="caracteristique" placeholder="Ex : Vos qualités/défauts" rows="5" cols="50"></textarea></td>
+					</tr>
 						<!-- <input type="radio" name="categorie" value="student" />STUDENT<br>
 						<input type="radio" name="categorie" value="school" />School<br>
 						<input type="radio" name="categorie" value="other" />Other<br> -->
-					</h3>
 					</table>
-					</fieldset>
-					<fieldset style="border: 2px solid #000000ad;border-radius: 10px; padding: 10px 20px;">
-					<legend>Envoyez nous votre photo !</legend>
-					<input type="file" name="selfie" id="selfie" accept=".png, .jpg, .jpeg" required/><br><br>
-					<input type="reset" value="Effacer"/>
-					</fieldset>
-					<br>
-					<input type="submit" name="valider" value="SOUMETTRE" />
+					</table>
+		</fieldset>
+		<fieldset style="border: 2px solid #000000ad;border-radius: 10px; padding: 10px 20px;">
+			<legend>Envoyez nous votre photo !</legend>
+			Nous avons besoin d'une selfie de vous pour que le client <br>sache au moins à qui s'attendre.<br>
+			<input type="file" name="selfie" id="selfie" accept=".png, .jpg, .jpeg" required/><br><br>
+			<input type="reset" value="Effacer"/>
+		</fieldset>
+		<br>
+		<input type="submit" name="valider" value="SOUMETTRE" />
+		</div>
 				</form>
     </section>
     
