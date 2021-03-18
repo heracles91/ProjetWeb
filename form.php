@@ -40,15 +40,15 @@ include("fonctions.php");
 					<div>
 					<table>
 					<tr>
-						<td>Nom : </td>
+						<td class="cellule"> Nom : </td>
 						<td><input type="text" name="nom" required autofocus/></td>
 					</tr><br>
 					<tr>
-						<td>Prénom : </td>
+						<td class="cellule"> Prénom : </td>
 						<td><input type="text" name="prenom" required/></td>
 					</tr><br>
 					<tr>
-						<td>Sexe : </td>
+						<td class="cellule"> Sexe : </td>
 						<td>
 						<SELECT name="sexe" required>
 							<OPTION value="null">Selectionner</OPTION>
@@ -58,23 +58,23 @@ include("fonctions.php");
 						</td>
 					</tr><br>
 					<tr>
-						<td>N° de téléphone : </td>
+						<td class="cellule"> N° de téléphone : </td>
 						<td><input type="tel" required/></td>
 					</tr><br>
 					<tr>
-						<td>Date de naissance : </td>
+						<td class="cellule"> Date de naissance : </td>
 						<td><input type="date"/></td>
 					</tr><br>
 					<tr>
-						<td>Mail : </td>
+						<td class="cellule"> Mail : </td>
 						<td><input type="email" required/></td>
 					</tr><br>
 					<tr>
-						<td>Votre prix/jour : </td>
+						<td class="cellule"> Votre prix/jour : </td>
 						<td><input type="text" name="prix_journee" required/></td>
 					</tr><br>
 					<tr>
-						<td>Quelque chose que vous aimeriez que l'on sache : </td>
+						<td class="cellule"> Quelque chose que vous<br>aimeriez que l'on sache : </td>
 						<td><textarea type="text" name="caracteristique" placeholder="Ex : Vos qualités/défauts" rows="5" cols="50"></textarea></td>
 					</tr>
 						<!-- <input type="radio" name="categorie" value="student" />STUDENT<br>
