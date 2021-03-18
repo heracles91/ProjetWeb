@@ -30,7 +30,7 @@ section.top-page {
     background-color: rgb(59, 59, 59);
     /* background: url("../images/fond1.jpg"); */
     /*background-size: cover; /*pour que le background couvre
-                              toute la page si on l'etire*/
+                            toute la page si on l'etire*/
     height: 60vh;
     padding: 20px; /*marge interieur*/
 }
@@ -59,8 +59,8 @@ section.top-page {
 .scroll{
     color: white;
     text-decoration: none;
- 
-   
+
+
 }
 
 /* menu de navigation */
@@ -129,8 +129,8 @@ p{
 .meilleurs-agents{
     background-color: rgb(59, 59, 59);
     background-size: cover; /*pour que le background couvre
-                              toute la page si on l'etire*/
-   
+                            toute la page si on l'etire*/
+
     padding: 20px; /*marge interieur*/
     
     /* background-image: url("../images/fond1.jpg"); */
@@ -165,7 +165,7 @@ p{
 
 .agent-box{
     position: relative;
-    margin: 20px 20px
+    margin: 20px 20px;
 }
 
 .agent-nom{
@@ -182,7 +182,9 @@ p{
 }
 
 .agent-detail{
-    position: absolute;   
+    position: absolute;
+
+
     width: 100%;
     background-color: rgba(255, 255, 255, 0.61);
     bottom: 0;
@@ -213,7 +215,7 @@ p{
 }
 
 .bas-de-page2{
-    background-color: rgb(143, 38, 38); 
+    background-color: rgb(143, 38, 38);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -280,7 +282,8 @@ footer a.cgv{
 }
 
 .cellule {
-    text-align: right;
+    border:"2";
+    border-color: black;
 }
 
 h2{
@@ -292,9 +295,22 @@ h2{
     padding: 0px 100px;
 }
 
-h3{
-    line-height: 50px;
+td{
     color:  rgb(255, 255, 255);
     font-weight: 400;
     
+}
+
+legend {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 6px;
+}
+
+fieldset{
+    display: inline-block;
+    border: 2px solid #000000ad;
+    border-radius: 10px; 
+    padding: 10px 20px;
+    height: 360px;
 }
