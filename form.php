@@ -33,64 +33,70 @@ include("fonctions.php");
             <h2>Inscription</h2>
         </div>
 		<br>
-		<fieldset style="border: 2px solid #000000ad;border-radius: 10px; padding: 10px 20px;">
+		<fieldset>
 			<legend>Coordonnées</legend>
 			<table>
 				<form name="inscription" method="post" action="form.php" enctype="multipart/form-data">
 					<div>
-					<table>
+					<table cellspacing="10">
 					<tr>
-						<td class="cellule"> Nom : </td>
-						<td><input type="text" name="nom" required autofocus/></td>
-					</tr><br>
+						<td> Nom : <br>
+						<input class="cellule" type="text" name="nom" required autofocus/></td>
+					</tr>
 					<tr>
-						<td class="cellule"> Prénom : </td>
-						<td><input type="text" name="prenom" required/></td>
-					</tr><br>
+						<td> Prénom : <br>
+						<input class="cellule" type="text" name="prenom" required/></td>
+					</tr>
 					<tr>
-						<td class="cellule"> Sexe : </td>
-						<td>
+						<td> Sexe : <br>
 						<SELECT name="sexe" required>
 							<OPTION value="null">Selectionner</OPTION>
 							<OPTION>Homme</OPTION>
 							<OPTION>Femme</OPTION>
 						</SELECT>
 						</td>
-					</tr><br>
+					</tr>
 					<tr>
-						<td class="cellule"> N° de téléphone : </td>
-						<td><input type="tel" required/></td>
-					</tr><br>
+						<td> N° de téléphone : <br>
+						<input class="cellule" type="tel" placeholder="ex : 0613245678" maxlength="10" pattern="[0]{1}[0-9]{9}" required/></td>
+					</tr>
 					<tr>
-						<td class="cellule"> Date de naissance : </td>
-						<td><input type="date"/></td>
-					</tr><br>
+						<td> Date de naissance : <br>
+						<input class="cellule" type="date"/></td>
+					</tr>
 					<tr>
-						<td class="cellule"> Mail : </td>
-						<td><input type="email" required/></td>
-					</tr><br>
-					<tr>
-						<td class="cellule"> Votre prix/jour : </td>
-						<td><input type="text" name="prix_journee" required/></td>
-					</tr><br>
-					<tr>
-						<td class="cellule"> Quelque chose que vous<br>aimeriez que l'on sache : </td>
-						<td><textarea type="text" name="caracteristique" placeholder="Ex : Vos qualités/défauts" rows="5" cols="50"></textarea></td>
+						<td> Mail : <br>
+						<input class="cellule" type="email" required/></td>
 					</tr>
 						<!-- <input type="radio" name="categorie" value="student" />STUDENT<br>
 						<input type="radio" name="categorie" value="school" />School<br>
 						<input type="radio" name="categorie" value="other" />Other<br> -->
-					</table>
-					</table>
+				</table>
 		</fieldset>
-		<fieldset style="border: 2px solid #000000ad;border-radius: 10px; padding: 10px 20px;">
+		<fieldset>
 			<legend>Envoyez nous votre photo !</legend>
-			Nous avons besoin d'une selfie de vous pour que le client <br>sache au moins à qui s'attendre.<br>
-			<input type="file" name="selfie" id="selfie" accept=".png, .jpg, .jpeg" required/><br><br>
-			<input type="reset" value="Effacer"/>
+			<table cellspacing="10"><tr>
+			<td>
+			Nous avons besoin d'une selfie<br>de vous pour que le client<br>sache au moins à qui s'attendre.<br><br>
+			<input type="file" name="selfie" id="selfie" accept=".png, .jpg, .jpeg" required/></td>
+			</tr></table>
+		</fieldset>
+		<fieldset>
+			<legend>Informations supplémentaires</legend>
+			<table cellspacing="10">
+				<tr>
+					<td> Votre prix/jour : <br>
+					<input class="cellule" type="text" name="prix_journee" required/>€</td>
+				</tr>
+				<tr>
+					<td>Quelque chose que vous<br>aimeriez que l'on sache : <br>
+					<textarea class="cellule" type="text" name="caracteristique" placeholder="Ex : Vos qualités/défauts" rows="5" cols="50"></textarea></td>
+				</tr>
+			</table>
 		</fieldset>
 		<br>
 		<input type="submit" name="valider" value="SOUMETTRE" />
+		<input type="reset" value="Effacer"/>
 		</div>
 				</form>
     </section>
