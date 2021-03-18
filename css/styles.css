@@ -130,7 +130,7 @@ p{
     background-color: rgb(59, 59, 59);
     background-size: cover; /*pour que le background couvre
                               toute la page si on l'etire*/
-    height: 80vh;
+   
     padding: 20px; /*marge interieur*/
     
     /* background-image: url("../images/fond1.jpg"); */
@@ -156,7 +156,7 @@ p{
 .div-best-agents{
     
     margin : 50px;
-    
+    flex-wrap: wrap;
     display: flex;
     align-items: center;
     justify-content: space-evenly; 
@@ -165,6 +165,7 @@ p{
 
 .agent-box{
     position: relative;
+    margin: 20px 20px
 }
 
 .agent-nom{
@@ -172,16 +173,16 @@ p{
     color:black;
     font-size: 20px;
     font-weight: 600;
+    padding: 0px 20px;
 }
 
 .agent-note{
     color:black;
+    padding: 0px 20px;
 }
 
 .agent-detail{
-    position: absolute;
-    padding: 0px 20px;
-  
+    position: absolute;   
     width: 100%;
     background-color: rgba(255, 255, 255, 0.61);
     bottom: 0;
