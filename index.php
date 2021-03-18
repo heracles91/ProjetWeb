@@ -9,9 +9,10 @@ include("fonctions.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Agent</title>
+    <title>MonAgent : Accueil</title>
     <link  href="css/styles.css" rel="stylesheet"  />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="images/site_logo.ico"/><link rel="shortcut icon" type="image/x-icon" href="images/site_logo.ico" />
 
 </head>
 <body>
