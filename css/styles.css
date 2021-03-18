@@ -37,6 +37,7 @@ section.top-page {
     padding: 20px; /*marge interieur*/
 }
 
+
 .landing-page{
     position: relative;
     padding: 20px 50px; /*marge interieur*/
@@ -122,6 +123,7 @@ p{
     width: 200px;
     text-align: center;
 }
+
 
 
 
@@ -255,6 +257,11 @@ footer a.cgv{
 .titre-form{
     line-height: 3px;
     font-size: 35px ;
+    color:rgb(255, 255, 255);
+}
+
+.cellule {
+    text-align: right;
 }
 
 h2{
