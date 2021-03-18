@@ -339,18 +339,3 @@ fieldset{
 }
 
 
-
-#overlay{
-    position:absolute;
-    top:50px;
-    left:50px;
-    z-index:2;
-    display:none;
-    width:200px;
-    height:150px;
-    overflow:auto;
-    border-style:solid;
-    border-color:#909090;
-    border-width:1px;
-    background-color:#f0f0f0;
-}
