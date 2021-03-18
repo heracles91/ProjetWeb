@@ -71,7 +71,6 @@ include("fonctions.php");
 	
 <?php
 if (isset ($_POST['valider'])) {
-	$logo=$_FILES['selfie']['name'];
 	$nom=$_POST['nom'];
 	$prenom=$_POST['prenom'];
 	$sexe=$_POST['sexe'];
@@ -79,17 +78,16 @@ if (isset ($_POST['valider'])) {
 	$prix_journee=$_POST['prix_journee'];
 	$photo=$_FILES['selfie']['name'];
 	$sexe=$_POST['sexe'];
-	move_uploaded_file($_FILES["selfie"]["tmp_name"], 'images/'.$_FILES['selfie']['name']);
 	
 	//on se connecte à la base 
 	connectMaBase();
 	//commande SQL d'insertion ou message d'erreur
-	$sql = 'INSERT INTO AGENTS_LISTE(id,nom,prenom,caracteristique,note,prix_journee,photo)
-	VALUES
+	$sql = 'INSERT INTO AGENTS_LISTE VALUES 
 	("","'.$nom.'","'.$prenom.'","'.$sexe.'","'.$caracteristique.'",0,"'.$prix_journee.'","'.$photo.'");';
 	mysql_query($sql) or die('ERREUR SQL ! <br>'.$sql.'<br>'.mysql_error());
 	//on ferme la connexion(
 	mysql_close();
+	move_uploaded_file($_FILES["selfie"]["tmp_name"], 'images/'.$_FILES['selfie']['name']);
 	}
 ?>
 </body>
