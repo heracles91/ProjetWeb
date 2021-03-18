@@ -6,12 +6,12 @@ CREATE TABLE AGENTS_LISTE(
 	caracteristique TEXT,
 	note INTEGER (10),
 	prix_journee INTEGER,
-	photo TEXT,
+	photo TEXT
 	);
 
 
 
-INSERT INTO AGENTS_LISTE(id,nom,prenom,caracteristique,note,prix_journee,photo,sexe)
+INSERT INTO AGENTS_LISTE(id,nom,prenom,sexe,caracteristique,note,prix_journee,photo)
 VALUES
 (00000001,"Duvier","Pascal","homme","Taille : 193, Âge : 48",9,1500,"agent1.jpg"),
 (00000002,"Budd","David","homme","Violent",10,900,"agent2.jpg"),
