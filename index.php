@@ -12,7 +12,7 @@ include("fonctions.php");
     <title>MonAgent : Accueil</title>
     <link  href="css/styles.css" rel="stylesheet"  />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js"></script>
-    <link rel="icon" type="image/x-icon" href="images/site_logo.ico"/><link rel="shortcut icon" type="image/x-icon" href="images/site_logo.ico" />
+    <link rel="icon" type="image/x-icon" href="images/logo.png"/><link rel="shortcut icon" type="image/x-icon" href="images/logo.png" />
 
 </head>
 <body>
@@ -30,7 +30,7 @@ include("fonctions.php");
             <h2 class="sous-titre">La référence pour votre protection rapprochée...</h2>
             
             <a class="scroll" href="#agents">Scroll <i class="fas fa-angle-down"> </i></a>
-        </div>  
+        </div> 
     </section>
     <section class="services">
         <div class="icon-div">
@@ -59,7 +59,7 @@ include("fonctions.php");
         <h2 class="titre">
             Nos agents
         </h2>
-        <div class="div-best-agents">
+        <div class="div-best-agents ">
                 <?php
                 //on se connecte
                 connectMaBase();
@@ -74,14 +74,53 @@ include("fonctions.php");
                         }
 
                         echo 
-                            '<a href="" class="agent-box numero'.$x.'">
+                            '<style>
+                            #overlay'.$x.'{
+                                position:absolute;
+                                top:50px;
+                                left:50px;
+                                z-index:2;
+                                display:none;
+                                width:200px;
+                                height:150px;
+                                overflow:auto;
+                                border-style:solid;
+                                border-color:#909090;
+                                border-width:1px;
+                                background-color:#f0f0f0;
+                            }
+                            </style>
+                            <a  class="agent-box numero'.$x.'">
                             <img src="images/'.$data['photo'].'" width="300" height="400">
                                 <div class="agent-detail">
                                     <p class="agent-nom">'.$data['prenom'].' '.$data['nom'].'</p>
                                     <p class="agent-note">'.str_repeat('<i class="fas fa-star"></i>',$data['note']/2).str_repeat('<i class="fas fa-star-half-alt"></i>',$verif).str_repeat('<i class="far fa-star"></i>',5-$data['note']/2).'</p>
                                 </div>
+                                <div class="agent-detail2">
+                                    <p class="detail2"> Prix : '.$data['prix_journee'].'€/jour</p>
+                                    <p class="detail2">Détail : '.$data['caracteristique'].'</p>   
+                                    <button type="button" onclick="document.getElementById(\'overlay'.$x.'\').style.display=\'block\'">Notez cet agent</button>
+                                    <div id="overlay'.$x.'">
+                                        <td> Note : <br>
+                                            <SELECT name="note" required>
+                                                <OPTION value="null">Selectionner</OPTION>
+                                                <OPTION>0</OPTION>
+                                                <OPTION>0.5</OPTION>
+                                                <OPTION>1</OPTION>
+                                                <OPTION>1.5</OPTION>
+                                                <OPTION>2</OPTION>
+                                                <OPTION>2.5</OPTION>
+                                                <OPTION>3</OPTION>
+                                                <OPTION>3.5</OPTION>
+                                                <OPTION>4</OPTION>
+                                                <OPTION>4.5</OPTION>
+                                                <OPTION>5</OPTION>
+                                            </SELECT>
+                                        </td>
+                                    </div>                              
+                                </div>
                             </a>';
-                            $x=x+1;
+                            $x=$x+1;
                     }
                     mysql_free_result($req); //on libere mysql de la requete
                     mysql_close(); //on ferme
