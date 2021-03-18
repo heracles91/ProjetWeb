@@ -17,9 +17,7 @@ header{
     display: flex; /* pour alligner tout les composant du header*/
     align-items: center; /* pour centrer les items entre eux*/
     /*background-color: rgba(28, 148, 28, 0.473);*/
-    
 }
-
 
 
 header img{
@@ -27,11 +25,11 @@ header img{
 }
 
 section.top-page {
-    background-color: rgb(59, 59, 59);
-    /* background: url("../images/fond1.jpg"); */
+    /* background-color: rgb(59, 59, 59); */
+    background: url("../images/fond22.png"); 
     /*background-size: cover; /*pour que le background couvre
                             toute la page si on l'etire*/
-    height: 60vh;
+    height: 112vh;
     padding: 20px; /*marge interieur*/
 }
 
@@ -154,7 +152,6 @@ p{
 }
 
 .div-best-agents{
-    
     margin : 50px;
     flex-wrap: wrap;
     display: flex;
@@ -174,6 +171,7 @@ p{
     font-size: 20px;
     font-weight: 600;
     padding: 0px 20px;
+    line-height: 15px;
 }
 
 .agent-note{
@@ -183,13 +181,38 @@ p{
 
 .agent-detail{
     position: absolute;
-
-
     width: 100%;
     background-color: rgba(255, 255, 255, 0.61);
     bottom: 0;
     
 }
+
+
+
+.agent-box {
+    border: none;
+    cursor: pointer;
+    }
+    
+.agent-detail2 {
+    position: absolute;
+    display: none;
+    width: 100%;
+    background-color: rgb(202, 201, 201);
+    z-index: 1;
+    }
+    
+.agent-box:hover .agent-detail2 {
+    display: block;
+    }
+
+.detail2{
+    color:black;
+    padding: 0px 20px;
+}
+
+
+
 
 
 /*bas de page*/
@@ -313,4 +336,21 @@ fieldset{
     border-radius: 10px; 
     padding: 10px 20px;
     height: 360px;
+}
+
+
+
+#overlay{
+    position:absolute;
+    top:50px;
+    left:50px;
+    z-index:2;
+    display:none;
+    width:200px;
+    height:150px;
+    overflow:auto;
+    border-style:solid;
+    border-color:#909090;
+    border-width:1px;
+    background-color:#f0f0f0;
 }
