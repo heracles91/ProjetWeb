@@ -94,6 +94,26 @@ include("fonctions.php");
 		</div>
 				</form>
     </section>
+	<hr>
+	<section class="bas-de-page2">   
+        <img class="image-bdp" src="images/logo.png" alt="Logo du site">
+        <div class="payment-method">
+            <i class="fab fa-cc-visa icon3"></i>
+            <i class="fab fa-cc-paypal icon3"></i>
+            <i class="fab fa-cc-mastercard icon3"></i>
+            <i class="fab fa-apple-pay icon3"></i>
+            <i class="fab fa-bitcoin icon3"></i>
+            <i class="fab fa-ethereum icon3"></i>
+        </div>
+        <p><i class="fas fa-phone-alt coord"></i> Tel : 007 <br>
+        <i class="fas fa-envelope coord"></i> Mail : info@monagent.com <br>
+        <i class="far fa-clock coord"></i> Dispo : 24h/24 7j/7</p>
+    </section>
+    <hr>
+    <footer class="footer2">
+        <p class="copyright">&copy; 2021 - Mon Agent </p>
+        <a href="" class="cgv">Conditions générales de ventes</a>
+    </footer>
     
 	
 <?php
