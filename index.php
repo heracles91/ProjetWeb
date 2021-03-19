@@ -66,42 +66,46 @@ include("fonctions.php");
                 //requete SQL
                 $sql='SELECT * FROM agents_liste';
                 $req=mysql_query($sql) or die('ERREUR SQL ! <br>'.$sql.'<br>'.mysql_error());
+                
                 $x=0;
                     while ($data = mysql_fetch_array($req)) {
+                        $sql2='SELECT AVG(note) FROM notes_agents WHERE id_agent='.$data['id'].'';            /*requete sql qui prend la moyenne des               */
+                        $req2=mysql_query($sql2)  or die('ERREUR SQL ! <br>'.$sql2.'<br>'.mysql_error());    /*notes dans la table notes_agents pour chaque agents*/
+                        $data2 = mysql_fetch_array($req2);
+                        $moyenne_note = $data2['AVG(note)'];  /*on recupere le résultat de la requete sql, c'est ce qui sera la note affichée pour chaque agents*/
                         $verif=0;
-                        if (fmod ( $data['note'], 2 )==1.0){
+                        $moyenne_note2=round($moyenne_note * 2) ;  /*permet a l'aide d'arrondis           */
+                        if (fmod ( $moyenne_note2, 2 )==1.0){     /*d'afficher les notes avec des étoiles*/
                             $verif=1;
-                        }
-
-                        echo 
-                            '<style>
-                            #overlay'.$x.'{
-                                position:absolute;
-                                top:50px;
-                                left:50px;
-                                z-index:2;
-                                display:none;
-                                width:200px;
-                                height:150px;
-                                overflow:auto;
-                                border-style:solid;
-                                border-color:#909090;
-                                border-width:1px;
-                                background-color:#f0f0f0;
                             }
-                            </style>
+                        $sql3='SELECT COUNT(note) FROM notes_agents WHERE id_agent='.$data['id'].'';          /*requete sql qui compte le nombre de                */
+                        $req3=mysql_query($sql3)  or die('ERREUR SQL ! <br>'.$sql2.'<br>'.mysql_error());    /*notes dans la table notes_agents pour chaque agents*/
+                        $data3 = mysql_fetch_array($req3);
+                        $nombre_de_notes = $data3['COUNT(note)'];
+                        $evaluation="évaluations";
+                        if ($nombre_de_notes<=1){
+                            $evaluation="évaluation";
+                            if ($nombre_de_notes==0){
+                                $nombre_de_notes="Aucune";
+                            }                           
+                        }
+                        echo                            
+                            '
                             <a  class="agent-box numero'.$x.'">
+                            <form name="note" method="post">
                             <img src="images/'.$data['photo'].'" width="300" height="400">
                                 <div class="agent-detail">
-                                    <p class="agent-nom">'.$data['prenom'].' '.$data['nom'].'</p>
-                                    <p class="agent-note">'.str_repeat('<i class="fas fa-star"></i>',$data['note']/2).str_repeat('<i class="fas fa-star-half-alt"></i>',$verif).str_repeat('<i class="far fa-star"></i>',5-$data['note']/2).'</p>
+                                    <p class="agent-nom" >'.$data['prenom'].' '.$data['nom'].'</p>
+                                    <div class="note-box">
+                                        <p class="agent-note">'.str_repeat('<i class="fas fa-star"></i>',$moyenne_note2/2).str_repeat('<i class="fas fa-star-half-alt"></i>',$verif).str_repeat('<i class="far fa-star"></i>',5-$moyenne_note2/2).' ('.round ($moyenne_note, 1).') </p>
+                                        <p class="nombre-note">'.$nombre_de_notes.' '.$evaluation.'</p>
+                                    </div>
                                 </div>
                                 <div class="agent-detail2">
                                     <p class="detail2"> Prix : '.$data['prix_journee'].'€/jour</p>
-                                    <p class="detail2">Détail : '.$data['caracteristique'].'</p>   
-                                    <button type="button" onclick="document.getElementById(\'overlay'.$x.'\').style.display=\'block\'">Notez cet agent</button>
-                                    <div id="overlay'.$x.'">
-                                        <td> Note : <br>
+                                    <p class="detail2">Détail : '.$data['caracteristique'].'</p>    
+                                    <div class"donner-note-box">                               
+                                        <td> Votre avis nous intéresse : <br>
                                             <SELECT name="note" required>
                                                 <OPTION value="null">Selectionner</OPTION>
                                                 <OPTION>0</OPTION>
@@ -116,14 +120,27 @@ include("fonctions.php");
                                                 <OPTION>4.5</OPTION>
                                                 <OPTION>5</OPTION>
                                             </SELECT>
-                                        </td>
-                                    </div>                              
+                                        </td>                                                      
+                                        <input type="submit" name="valider'.$x.'" value="Notez cet agent" />
+                                    </div>                
                                 </div>
-                            </a>';
+                                </form> 
+                            </a>';                            
+                            if (isset ($_POST['valider'.$x])) {
+                                $id=$data['id'];
+                                // $data = mysql_fetch_array($req);
+                                $note=$_POST['note'];
+                                //on se connecte à la base 
+                                connectMaBase();
+                                //commande SQL d'insertion ou message d'erreur
+                                $sql = 'INSERT INTO notes_agents(id_agent,note) VALUES('.$id.',"'.$note.'")';
+                                mysql_query($sql) or die('ERREUR SQL ! <br>'.$sql.'<br>'.mysql_error());
+                                }
                             $x=$x+1;
                     }
                     mysql_free_result($req); //on libere mysql de la requete
-                    mysql_close(); //on ferme
+                    mysql_close(); //on ferme                   
+                    
                 ?> 
             
         </div>
