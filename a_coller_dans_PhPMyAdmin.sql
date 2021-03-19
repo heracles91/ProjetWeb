@@ -17,3 +17,14 @@ VALUES
 (00000002,"Budd","David","homme","Violent",10,900,"agent2.jpg"),
 (00000003,"Wick","John","homme","Visée parfaite",1,120,"agent3.jpg"),
 (00000004,"Bond","James","homme","Discret et calme",7,420,"agent0.jpg");
+
+
+
+CREATE TABLE NOTES_AGENTS(
+	id_note INT AUTO_INCREMENT,
+	PRIMARY KEY(id_note),
+	id_agent INT,
+	FOREIGN KEY(id_agent) REFERENCES AGENTS_LISTE(id) ,
+	note FLOAT
+	);
+
