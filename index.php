@@ -89,10 +89,9 @@ include("fonctions.php");
                                 $nombre_de_notes="Aucune";
                             }                           
                         }
-                        echo                            
-                            '
-                            <a  class="agent-box numero'.$x.'">
-                            <form name="note" method="post">
+                        echo                                                        
+                            '<a  class="agent-box numero'.$x.'">
+                            <form name="note" method="post" action="traitement.php?id='.$data['id'].'" >
                             <img src="images/'.$data['photo'].'" width="300" height="400">
                                 <div class="agent-detail">
                                     <p class="agent-nom" >'.$data['prenom'].' '.$data['nom'].'</p>
@@ -121,21 +120,11 @@ include("fonctions.php");
                                                 <OPTION>5</OPTION>
                                             </SELECT>
                                         </td>                                                      
-                                        <input type="submit" name="valider'.$x.'" value="Notez cet agent" />
+                                        <input type="submit" name="valider" value="Notez cet agent" />
                                     </div>                
                                 </div>
                                 </form> 
-                            </a>';                            
-                            if (isset ($_POST['valider'.$x])) {
-                                $id=$data['id'];
-                                // $data = mysql_fetch_array($req);
-                                $note=$_POST['note'];
-                                //on se connecte à la base 
-                                connectMaBase();
-                                //commande SQL d'insertion ou message d'erreur
-                                $sql = 'INSERT INTO notes_agents(id_agent,note) VALUES('.$id.',"'.$note.'")';
-                                mysql_query($sql) or die('ERREUR SQL ! <br>'.$sql.'<br>'.mysql_error());
-                                }
+                            </a>';
                             $x=$x+1;
                     }
                     mysql_free_result($req); //on libere mysql de la requete
