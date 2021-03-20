@@ -89,6 +89,10 @@ include("fonctions.php");
                                 $nombre_de_notes="Aucune";
                             }                           
                         }
+                        $rajout_du_0="";                                /*rajoute .0 après les notes moyennes qui sont entière */
+                        if (fmod(round ($moyenne_note, 1)*2,2)==0){    /* (effet de style)                                    */
+                            $rajout_du_0=".0";
+                        }
                         echo                                                        
                             '<a  class="agent-box numero'.$x.'">
                             <form name="note" method="post" action="traitement.php?id='.$data['id'].'" >
@@ -96,7 +100,7 @@ include("fonctions.php");
                                 <div class="agent-detail">
                                     <p class="agent-nom" >'.$data['prenom'].' '.$data['nom'].'</p>
                                     <div class="note-box">
-                                        <p class="agent-note">'.str_repeat('<i class="fas fa-star"></i>',$moyenne_note2/2).str_repeat('<i class="fas fa-star-half-alt"></i>',$verif).str_repeat('<i class="far fa-star"></i>',5-$moyenne_note2/2).' ('.round ($moyenne_note, 1).') </p>
+                                        <p class="agent-note">'.str_repeat('<i class="fas fa-star"></i>',$moyenne_note2/2).str_repeat('<i class="fas fa-star-half-alt"></i>',$verif).str_repeat('<i class="far fa-star"></i>',5-$moyenne_note2/2).' ('.round ($moyenne_note, 1).$rajout_du_0.') </p>
                                         <p class="nombre-note">'.$nombre_de_notes.' '.$evaluation.'</p>
                                     </div>
                                 </div>
