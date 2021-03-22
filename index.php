@@ -13,7 +13,29 @@ include("fonctions.php");
     <link  href="css/styles.css" rel="stylesheet"  />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js"></script>
     <link rel="icon" type="image/x-icon" href="images/logo.png"/><link rel="shortcut icon" type="image/x-icon" href="images/logo.png" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        input[type=submit] {
+			width: 53%;
+			color: black;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 15px;
+            padding: 5px 5px;
+		}
 
+		select {
+			width: 45%;
+			padding: 5px 0px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+
+    </style>
 </head>
 <body>
     <section class="top-page">
@@ -105,12 +127,12 @@ include("fonctions.php");
                                     </div>
                                 </div>
                                 <div class="agent-detail2">
-                                    <p class="detail2"> Prix : '.$data['prix_journee'].'€/jour</p>
-                                    <p class="detail2">Détail : '.$data['caracteristique'].'</p>    
+                                    <div class="detail2"> <span class="titre-detail">Prix </span>: <span class="prix-detail">'.$data['prix_journee'].'</span>€/jour</div>
+                                    <div class="detail2"> <span class="titre-detail">Détail </span>: '.$data['caracteristique'].'</div>    
                                     <div class"donner-note-box">                               
-                                        <td> Votre avis nous intéresse : <br>
+                                        <td >  <span class="titre-detail">Votre avis nous intéresse :  </span><br>
                                             <SELECT name="note" required>
-                                                <OPTION value="null">Selectionner</OPTION>
+                                                <OPTION value="">Selectionner</OPTION>
                                                 <OPTION>0</OPTION>
                                                 <OPTION>0.5</OPTION>
                                                 <OPTION>1</OPTION>
@@ -156,6 +178,7 @@ include("fonctions.php");
     <hr>
     <footer>
         <p class="copyright">&copy; 2021 - Mon Agent </p>
+        <p class="credits">Réalisé par Marius LACOUR, Kevin KAMENI, Jade GAY</p>
         <a href="" class="cgv">Conditions générales de ventes</a>
     </footer>
     
