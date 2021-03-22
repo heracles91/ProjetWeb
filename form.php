@@ -9,8 +9,35 @@ include("fonctions.php");
         <title>S'inscrire en tant qu'agent</title>
     <link href="css/styles.css" rel="stylesheet" media="all" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js"></script>
-	<link rel="icon" type="image/x-icon" href="images/site_logo.ico" /><link rel="shortcut icon" type="image/x-icon" href="images/site_logo.ico" />
-    </head>
+	<link rel="icon" type="image/x-icon" href="images/logo.png" /><link rel="shortcut icon" type="image/x-icon" href="images/logo.png" />
+    <style>
+		body{
+			color: white;
+		}
+		
+		input[type=submit], input[type=reset] {
+			width: 350px;
+			color: white;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			height: 60px;
+			font-size: 15px;
+		}
+
+		input[type=text], input[type=tel],  input[type=date],  input[type=email], textarea[type=text], select {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+
+		
+	</style>
+	</head>
     <body>
     <section class="top-page">
         <header class="form-header">
@@ -22,7 +49,7 @@ include("fonctions.php");
                 </nav>
         </header>
         <div class="landing-page">
-            <h1 class="gros-titre"> Devenez agent !</h1>
+            <h1 class="gros-titre">Devenez agent !</h1>
             <h2 class="sous-titre">Si vous vous en sentez capable ... proposez vos services !</h2>
             
             <a class="scroll" href="#formulaire">Scroll <i class="fas fa-angle-down"> </i></a>
@@ -33,73 +60,64 @@ include("fonctions.php");
             <h2>Inscription</h2>
         </div>
 		<br>
-		<fieldset>
-			<legend>Coordonnées</legend>
-			<table>
+		<div class="formulaire-box">
+			<div class="form-infos global-form">
 				<form name="inscription" method="post" action="form.php" enctype="multipart/form-data">
-					<div>
-					<table cellspacing="10">
-					<tr>
-						<td> Nom : <br>
-						<input class="cellule" type="text" name="nom" required autofocus/></td>
-					</tr>
-					<tr>
-						<td> Prénom : <br>
-						<input class="cellule" type="text" name="prenom" required/></td>
-					</tr>
-					<tr>
-						<td> Sexe : <br>
-						<SELECT name="sexe" required>
-							<OPTION value="null">Selectionner</OPTION>
-							<OPTION>Homme</OPTION>
-							<OPTION>Femme</OPTION>
-						</SELECT>
-						</td>
-					</tr>
-					<tr>
-						<td> N° de téléphone : <br>
-						<input class="cellule" type="tel" placeholder="ex : 0613245678" maxlength="10" pattern="[0]{1}[0-9]{9}" required/></td>
-					</tr>
-					<tr>
-						<td> Date de naissance : <br>
-						<input class="cellule" type="date"/></td>
-					</tr>
-					<tr>
-						<td> Mail : <br>
-						<input class="cellule" type="email" required/></td>
-					</tr>
-						<!-- <input type="radio" name="categorie" value="student" />STUDENT<br>
-						<input type="radio" name="categorie" value="school" />School<br>
-						<input type="radio" name="categorie" value="other" />Other<br> -->
-				</table>
-		</fieldset>
-		<fieldset>
-			<legend>Envoyez nous votre photo !</legend>
-			<table cellspacing="10"><tr>
-			<td>
-			Nous avons besoin d'une selfie<br>de vous pour que le client<br>sache au moins à qui s'attendre.<br><br>
-			<input type="file" name="selfie" id="selfie" accept=".png, .jpg, .jpeg" required/></td>
-			</tr></table>
-		</fieldset>
-		<fieldset>
-			<legend>Informations supplémentaires</legend>
-			<table cellspacing="10">
-				<tr>
-					<td> Votre prix/jour : <br>
-					<input class="cellule" type="text" name="prix_journee" required/>€</td>
-				</tr>
-				<tr>
-					<td>Quelque chose que vous<br>aimeriez que l'on sache : <br>
-					<textarea class="cellule" type="text" name="caracteristique" placeholder="Ex : Vos qualités/défauts" rows="5" cols="50"></textarea></td>
-				</tr>
-			</table>
-		</fieldset>
-		<br>
-		<input type="submit" name="valider" value="SOUMETTRE" />
-		<input type="reset" value="Effacer"/>
+		
+					<label for="nom"> Nom : </label>
+					<input id="nom" class="cellule" type="text" name="nom" required autofocus/>
+				
+					<label for="prenom">Prénom :</label>
+					<input id="prenom" class="cellule" type="text" name="prenom" required/>
+				
+					<label for="sexe">Sexe :</label>
+					<SELECT id="sexe" name="sexe" required>
+						<OPTION value="null">Selectionner</OPTION>
+						<OPTION>Homme</OPTION>
+						<OPTION>Femme</OPTION>
+					</SELECT>
+
+					<label for="telephone">N° de téléphone :</label>
+					<input id="telephone" class="cellule" type="tel" placeholder="ex : 0613245678" maxlength="10" pattern="[0]{1}[0-9]{9}" required/>
+				
+					<label for="date">Date de naissance :</label>
+					<input id="date" class="cellule" type="date"/>
+				
+					<label for="mail"> Mail : </label>
+					<input id="mail" class="cellule" type="email" required/>
+			</div>
+
+			<div class="form-photo global-form">					
+				<label for="selfie">Nous avons besoin d'un selfie de vous <br> pour que le client sache au moins à qui s'attendre.</label><br>
+				<input type="file" name="selfie" accept=".png, .jpg, .jpeg" onchange="loadFile(event)"><br>
+				<label for="output"> Votre photo de profil ressemblera à cela : <br></label>
+				<img id="output" width="300" height="400"/>
+				<script> // javascript nécéssaire pour afficher un aperçu de la photo de profil
+				var loadFile = function(event) {
+					var output = document.getElementById('output');
+					output.src = URL.createObjectURL(event.target.files[0]);
+					output.onload = function() {
+					URL.revokeObjectURL(output.src) // on libère la mémoire
+					}
+				};
+				</script>
+			</div>
+
+			<div class="form-infos2 global-form">			
+						<label for="prix"> Votre prix/jour : </label>
+						<span><input id="prix" class="prix" type="prix" name="prix_journee" required/>€</span>		
+						<label for="caracteristique">Quelque chose que vous<br>aimeriez que l'on sache : </label>
+						<textarea id="caracteristique" class="cellule" type="text" name="caracteristique" placeholder="Ex : Vos qualités/défauts" rows="5" cols="50"></textarea>	
+			</div>	
+
 		</div>
+	</section>
+	<section class="formulaire-submit">
+		<input class="submit" type="submit" name="valider" value="SOUMETTRE" />
+		<input class="reset" type="reset" value="Effacer" />
+		
 				</form>
-    </section>
+	</section>
 	<hr>
 	<section class="bas-de-page2">   
         <img class="image-bdp" src="images/logo.png" alt="Logo du site">
@@ -118,6 +136,7 @@ include("fonctions.php");
     <hr>
     <footer class="footer2">
         <p class="copyright">&copy; 2021 - Mon Agent </p>
+		<p class="credits">Réalisé par Marius LACOUR, Kevin KAMENI, Jade GAY</p>
         <a href="" class="cgv">Conditions générales de ventes</a>
     </footer>
     
