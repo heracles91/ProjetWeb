@@ -7,7 +7,7 @@
 }
 
 html{
-    scroll-behavior: smooth;
+    scroll-behavior:smooth;
 }
 
 body{
@@ -27,17 +27,20 @@ header img{
 
 section.top-page {
     /* background-color: rgb(59, 59, 59); */
-    background: url("../images/fond22.png"); 
+    background: url("../images/fond3.2.png") ; 
     /*background-size: cover; /*pour que le background couvre
                             toute la page si on l'etire*/
+    background-size: 100% ;
     height: 112vh;
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 20px; /*marge interieur*/
 }
 
 
 .landing-page{
     position: relative;
-    padding: 20px 50px; /*marge interieur*/
+    padding: 50px 50px; /*marge interieur*/
 }
 
 .gros-titre{
@@ -48,9 +51,9 @@ section.top-page {
 }
 
 .sous-titre{
-    color: rgb(202, 201, 201);
+    color: rgb(236, 236, 236);
     position: absolute;
-    bottom: 50px; 
+    bottom: 70px; 
     font-weight: 600;
 }
 
@@ -75,7 +78,7 @@ nav {
 }
 
 .boutton-haut{
-    color: rgb(202, 201, 201);
+    color: rgb(236, 236, 236);
     text-decoration: none;
     font-weight: 500;
 }
@@ -90,6 +93,7 @@ nav {
 /* services */
 
 .services{
+    padding: 50px 0;
     background-color: rgb(59, 59, 59); 
 }
 
@@ -130,7 +134,7 @@ p{
     background-size: cover; /*pour que le background couvre
                             toute la page si on l'etire*/
 
-    padding: 20px; /*marge interieur*/
+    padding: 1px 20px; /*marge interieur*/
     
     /* background-image: url("../images/fond1.jpg"); */
 }
@@ -171,8 +175,9 @@ p{
     color:black;
     font-size: 20px;
     font-weight: 600;
-    padding: 0px 20px;
-    padding-top: 5px;   
+    padding: 0px 20px;  
+    line-height: 0px;   
+    padding-top: 5px;
 }
 
 .note-box{
@@ -200,24 +205,34 @@ p{
     
 }
 
-
+img{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    vertical-align:top;
+}
 
 .agent-box {
-    border: none;
-    cursor: pointer;
+    position: relative;
     }
     
 .agent-detail2 {
     position: absolute;
-    display: none;
     width: 100%;
-    background-color: rgb(202, 201, 201);
+    background-color: rgba(202, 201, 201, 0.87);
     z-index: 1;   
-    padding-bottom: 10px;
+    overflow:hidden;
+    height:0;
+    transition: 0.5s all;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
     }
     
 .agent-box:hover .agent-detail2 {
-    display: block;
+    height: 40%;
     }
 
 .detail2{
@@ -225,10 +240,12 @@ p{
     color:black;
 }
 
-.donner-note-box{
-    padding: 0px 20px;
-    background-color: blue;
-    margin: 10px;
+.titre-detail{
+    font-weight: 500;
+}
+
+.prix-detail{
+    font-weight: 600;
 }
 
 
@@ -246,6 +263,7 @@ p{
 
 .payment-method{
     width: 150px;
+    color: black;
 }
 
 .bas-de-page{
@@ -257,7 +275,7 @@ p{
 }
 
 .bas-de-page2{
-    background-color: rgb(143, 38, 38);
+    background-color: rgb(58, 68, 100); 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -292,7 +310,7 @@ footer{
 }
 
 .footer2{
-    background-color: rgb(143, 38, 38); 
+    background-color: rgb(58, 68, 100); 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -301,6 +319,10 @@ footer{
 }
 
 footer p.copyright{
+    color:black;
+}
+
+footer p.credits{
     color:black;
 }
 
@@ -314,18 +336,21 @@ footer a.cgv{
 /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 .formulaire{
-    background-color: rgb(143, 38, 38); 
+    background-color: rgb(58, 68, 100); 
     padding: 30px 60px;
+  
 }
+
+.formulaire-submit{
+    background-color: rgb(58, 68, 100); 
+    padding: 20px 80px;
+    display: flex; 
+}
+
 
 .titre-form{
     font-size: 35px ;
     color:rgb(255, 255, 255);
-}
-
-.cellule {
-    border:"2";
-    border-color: black;
 }
 
 h2{
@@ -333,43 +358,58 @@ h2{
     font-weight: 400;
 }
 
-.form1{
-    padding: 0px 100px;
-}
 
-td{
-    color:  rgb(255, 255, 255);
-    font-weight: 400;
-    
-}
-
-legend {
-    background-color: #000;
-    color: #fff;
-    padding: 3px 6px;
-}
-
-fieldset{
+input[type=prix]{
+    width: 97%;
+    padding: 12px 20px;
+    margin: 8px 0;
     display: inline-block;
-    border: 2px solid #000000ad;
-    border-radius: 10px; 
-    padding: 10px 20px;
-    height: 360px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+
+
+.submit{ 
+    background-color: rgb(90, 150, 90);
+    margin-bottom: 30px;
+}
+
+.reset{
+    margin: 0px 20px;
+    background-color: rgb(92, 92, 92);
 }
 
 
-.overlay{
-    position:absolute;
-    top:50px;
-    left:50px;
-    z-index:2;
-    display:none;
-    width:200px;
-    height:150px;
-    overflow:auto;
-    border-style:solid;
-    border-color:#909090;
-    border-width:1px;
-    background-color:#f0f0f0;
-}                           
+
+
+.formulaire-box{
+    display:flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.form-infos{
+    width: 400px;
+}
+
+.form-photo{
+    line-height: 20px;
+}
+
+.form-infos2{
+    width: 600px;
+}
+
+label{
+    color: white;
+}
+
+.global-form {
+    border-radius: 5px;
+    background-color: #a1a1a1;
+    padding: 10px;
+    margin: 15 20px;
+  }
 
