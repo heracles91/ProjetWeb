@@ -1,13 +1,13 @@
 PROJET WEB
 
-Personnes formant le groupe : 
+Personnes formant le groupe : Marius LACOUR, Jade GAY, Kévin KAMENI
 
 
-Nom de la base de données : 
+Nom de la base de données : agents
 
 
 
-Desciption du projet :
+Desciption du projet : Un site commerciale permettant de réserver un garde du corps parmis ceux présent dans notre base de données. Vous pouvez aussi vous enregistrer en tant qu'agent et ainsi figurer sur notre page d'accueil.
 
 
 
