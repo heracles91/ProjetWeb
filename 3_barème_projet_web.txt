@@ -1,0 +1,33 @@
+PROJET WEB
+
+Personnes formant le groupe : 
+
+
+Nom de la base de données : 
+
+
+
+Desciption du projet :
+
+
+
+
+Barème : 
+Consignes respéctées 10 pts, 1 pt par rubrique : 
+3 pages minimum : 
+Entête et Logo :
+Barre de navigation  : 
+Pied de page :
+LOGO 1 pt : 
+Fichier SQL : 
+Page de consultation de la BDD:
+Page d'insertion de données :
+BDD : 
+Structure en article/section ou div : 
+
+
+Qualité du style CSS 4 pts : 
+
+Originalité et touche personnelle 4pts : 
+
+Intérêt et construction de la BDD 2 pts : 
