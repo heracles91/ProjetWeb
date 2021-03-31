@@ -1,3 +1,20 @@
+
+<?php
+// On démarre la session 
+session_start();
+
+if ($_SESSION['client_connecte']==False){
+    $_SESSION['client_connecte']=False;
+}
+
+else{
+    $_SESSION['client_connecte']=True;
+}
+
+
+
+?>
+
 <?php
 include("fonctions.php");
 ?> 
@@ -13,15 +30,12 @@ include("fonctions.php");
     <link  href="css/styles.css" rel="stylesheet"  />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js"></script>
     <link rel="icon" type="image/x-icon" href="images/logo.png"/><link rel="shortcut icon" type="image/x-icon" href="images/logo.png" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         input[type=submit] {
-			width: 53%;
 			color: black;
 			border: none;
 			border-radius: 4px;
 			cursor: pointer;
-			font-size: 15px;
             padding: 5px 5px;
 		}
 
@@ -36,25 +50,50 @@ include("fonctions.php");
 		}
 
     </style>
+    <!-- on inclut jQuery via CDN -->
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 </head>
 <body>
+    
     <section class="top-page">
-        <header>
-            <img src="images/logo.png" alt="Logo du site">
-            <nav>
-                <li><a class="boutton-haut" href="">Accueil</a> </li>
-                <li><a class="boutton-haut" href="#agents">Nos agents</a> </li>
-                <li><a class="boutton-haut" href="form.php">Devenir agent</a> </li>
-            </nav>
-        </header>
+        <div class="header">
+            <header>
+                <img src="images/logo.png" alt="Logo du site">
+                <nav>
+                    <li><a class="boutton-haut" href="">Accueil</a> </li>
+                    <li><a class="boutton-haut" href="#agents">Nos agents</a> </li> 
+                    <li><a class="boutton-haut" href="form.php">Devenir agent</a> </li>
+                    
+                </nav>
+            </header>
+            <div class="header-right">
+                <?php 
+                    if ($_SESSION['client_connecte']){
+                        echo ' <a class="boutton-haut bouton-reservations" href="compte.php"><i class="fas fa-user"></i> Mon compte</a> ';
+                    }
+
+                    else{
+                        echo '<a class="boutton-haut bouton-reservations" href="connexion.php"><i class="fas fa-user"></i> Connexion</a>  ';
+                    }
+                ?>        
+            </div>
+        </div>
+        
         <div class="landing-page">
             <h1 class="gros-titre"> Vous n'avez qu'à choisir !</h1>
             <h2 class="sous-titre">La référence pour votre protection rapprochée...</h2>
             
-            <a class="scroll" href="#agents">Scroll <i class="fas fa-angle-down"> </i></a>
+            <a class="scroll" href="#services">Scroll <i class="fas fa-angle-down"> </i></a>
         </div> 
     </section>
-    <section class="services">
+    <section class="services" id="services">
+        <div class="infos-box">
+            <h6 class="infos-titre">Un concept innovant</h6>
+            <span class="infos-text">Le premier site de réservation d'agents de sécurité, de garde du corps, sur lequel vous pouvez postulez !</span>
+        </div>
+        
+        <hr class="trait">
+
         <div class="icon-div">
             <div class="service-item">
                 <i class="fas fa-handshake icon2"></i>
@@ -91,33 +130,10 @@ include("fonctions.php");
                 
                 $x=0;
                     while ($data = mysql_fetch_array($req)) {
-                        $sql2='SELECT AVG(note) FROM notes_agents WHERE id_agent='.$data['id'].'';            /*requete sql qui prend la moyenne des               */
-                        $req2=mysql_query($sql2)  or die('ERREUR SQL ! <br>'.$sql2.'<br>'.mysql_error());    /*notes dans la table notes_agents pour chaque agents*/
-                        $data2 = mysql_fetch_array($req2);
-                        $moyenne_note = $data2['AVG(note)'];  /*on recupere le résultat de la requete sql, c'est ce qui sera la note affichée pour chaque agents*/
-                        $verif=0;
-                        $moyenne_note2=round($moyenne_note * 2) ;  /*permet a l'aide d'arrondis           */
-                        if (fmod ( $moyenne_note2, 2 )==1.0){     /*d'afficher les notes avec des étoiles*/
-                            $verif=1;
-                            }
-                        $sql3='SELECT COUNT(note) FROM notes_agents WHERE id_agent='.$data['id'].'';          /*requete sql qui compte le nombre de                */
-                        $req3=mysql_query($sql3)  or die('ERREUR SQL ! <br>'.$sql2.'<br>'.mysql_error());    /*notes dans la table notes_agents pour chaque agents*/
-                        $data3 = mysql_fetch_array($req3);
-                        $nombre_de_notes = $data3['COUNT(note)'];
-                        $evaluation="évaluations";
-                        if ($nombre_de_notes<=1){
-                            $evaluation="évaluation";
-                            if ($nombre_de_notes==0){
-                                $nombre_de_notes="Aucune";
-                            }                           
-                        }
-                        $rajout_du_0="";                                /*rajoute .0 après les notes moyennes qui sont entière */
-                        if (fmod(round ($moyenne_note, 1)*2,2)==0){    /* (effet de style)                                    */
-                            $rajout_du_0=".0";
-                        }
+                        list($moyenne_note2,$moyenne_note,$evaluation,$nombre_de_notes,$rajout_du_0,$verif)=note($data['id']); //on se sert de la fonction note() importée depuis fonctions.php
                         echo                                                        
-                            '<a  class="agent-box numero'.$x.'">
-                            <form name="note" method="post" action="traitement.php?id='.$data['id'].'" >
+                            '<a  href="infos_supplementaires.php?id='.$data['id'].'" class="agent-box numero'.$x.'">
+                            
                             <img src="images/'.$data['photo'].'" width="300" height="400">
                                 <div class="agent-detail">
                                     <p class="agent-nom" >'.$data['prenom'].' '.$data['nom'].'</p>
@@ -127,29 +143,15 @@ include("fonctions.php");
                                     </div>
                                 </div>
                                 <div class="agent-detail2">
-                                    <div class="detail2"> <span class="titre-detail">Prix </span>: <span class="prix-detail">'.$data['prix_journee'].'</span>€/jour</div>
-                                    <div class="detail2"> <span class="titre-detail">Détail </span>: '.$data['caracteristique'].'</div>    
-                                    <div class"donner-note-box">                               
-                                        <td >  <span class="titre-detail">Votre avis nous intéresse :  </span><br>
-                                            <SELECT name="note" required>
-                                                <OPTION value="">Selectionner</OPTION>
-                                                <OPTION>0</OPTION>
-                                                <OPTION>0.5</OPTION>
-                                                <OPTION>1</OPTION>
-                                                <OPTION>1.5</OPTION>
-                                                <OPTION>2</OPTION>
-                                                <OPTION>2.5</OPTION>
-                                                <OPTION>3</OPTION>
-                                                <OPTION>3.5</OPTION>
-                                                <OPTION>4</OPTION>
-                                                <OPTION>4.5</OPTION>
-                                                <OPTION>5</OPTION>
-                                            </SELECT>
-                                        </td>                                                      
-                                        <input type="submit" name="valider" value="Notez cet agent" />
-                                    </div>                
+                                    <div class="detail2"> <span class="titre-detail">Prix </span>: <span class="prix-detail">'.$data['prix_journee'].'</span>€/jour</div> 
+                                    <div class="index-caracteristique">
+                                        <form name="infos-sup" method="post" action="infos_supplementaires.php?id='.$data['id'].'" > 
+                                        '.substr ($data['caracteristique'],0,60)// substr permet de ne renvoyer qu'une partie d'une chaine de caracteres (ici 60)
+                                        .'... <input type="submit" name="valider" value="Voir plus" />     
+                                        </form> 
+                                    </div> 
                                 </div>
-                                </form> 
+                                
                             </a>';
                             $x=$x+1;
                     }
@@ -159,6 +161,7 @@ include("fonctions.php");
                 ?> 
             
         </div>
+        
     </section>
     <hr>
     <section class="bas-de-page">   
@@ -175,12 +178,19 @@ include("fonctions.php");
         <i class="fas fa-envelope coord"></i> Mail : info@monagent.com <br>
         <i class="far fa-clock coord"></i> Dispo : 24h/24 7j/7</p>
     </section>
-    <hr>
+    <hr>           
+    
     <footer>
         <p class="copyright">&copy; 2021 - Mon Agent </p>
         <p class="credits">Réalisé par Marius LACOUR, Kevin KAMENI, Jade GAY</p>
         <a href="" class="cgv">Conditions générales de ventes</a>
     </footer>
+    <!-- votre propre fichier dans le dossier de votre projet -->
+    <script>
+        $(".gros-titre").fadeIn(10000)
+    </script>
     
 </body>
 </html>
+
+
