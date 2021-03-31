@@ -1,4 +1,10 @@
 <?php
+// On démarre la session 
+session_start();
+?>
+
+
+<?php
 include("fonctions.php");
 ?>
 
@@ -9,6 +15,8 @@ include("fonctions.php");
         <title>S'inscrire en tant qu'agent</title>
     <link href="css/styles.css" rel="stylesheet" media="all" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js"></script>
+	<!-- on inclut jQuery via CDN -->
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 	<link rel="icon" type="image/x-icon" href="images/logo.png" /><link rel="shortcut icon" type="image/x-icon" href="images/logo.png" />
     <style>
 		body{
@@ -40,14 +48,29 @@ include("fonctions.php");
 	</head>
     <body>
     <section class="top-page">
-        <header class="form-header">
+		<div class="header">
+            <header>
                 <img src="images/logo.png" alt="Logo du site">
                 <nav>
                     <li><a class="boutton-haut" href="index.php">Accueil</a> </li>
-                    <li><a class="boutton-haut" href="index.php #agents">Nos agents</a> </li>
+                    <li><a class="boutton-haut" href="index.php #agents">Nos agents</a> </li> <!---->
                     <li><a class="boutton-haut" href="form.php">Devenir agent</a> </li>
+                    
                 </nav>
-        </header>
+            </header>
+            <div class="header-right">
+                <?php 
+                    if ($_SESSION['client_connecte']){
+                        echo ' <a class="boutton-haut bouton-reservations" href="compte.php"><i class="fas fa-user"></i> Mon compte</a> ';
+                    }
+
+                    else{
+                        echo '<a class="boutton-haut bouton-reservations" href="connexion.php"><i class="fas fa-user"></i> Connexion</a>  ';
+                    }
+                ?>        
+            </div>
+        </div>
+
         <div class="landing-page">
             <h1 class="gros-titre">Devenez agent !</h1>
             <h2 class="sous-titre">Si vous vous en sentez capable ... proposez vos services !</h2>
@@ -56,16 +79,16 @@ include("fonctions.php");
         </div>  
     </section>
     <section class="formulaire" id="formulaire">
-        <div class="titre-form">
-            <h2>Inscription</h2>
-        </div>
+        
+            <h2  class="titre-form">Inscription</h2>
+        
 		<br>
 		<div class="formulaire-box">
 			<div class="form-infos global-form">
-				<form name="inscription" method="post" action="form.php" enctype="multipart/form-data">
+				<form id="formulaire2" name="inscription" method="post" action="form.php" enctype="multipart/form-data">
 		
 					<label for="nom"> Nom : </label>
-					<input id="nom" class="cellule" type="text" name="nom" required autofocus/>
+					<input id="nom" class="cellule" type="text" name="nom" required />
 				
 					<label for="prenom">Prénom :</label>
 					<input id="prenom" class="cellule" type="text" name="prenom" required/>
@@ -105,20 +128,20 @@ include("fonctions.php");
 
 			<div class="form-infos2 global-form">			
 						<label for="prix"> Votre prix/jour : </label>
-						<span><input id="prix" class="prix" type="prix" name="prix_journee" required/>€</span>		
-						<label for="caracteristique">Quelque chose que vous<br>aimeriez que l'on sache : </label>
-						<textarea id="caracteristique" class="cellule" type="text" name="caracteristique" placeholder="Ex : Vos qualités/défauts" rows="5" cols="50"></textarea>	
+						<span><input id="prix" class="prix" min="0" step="50" type="number" name="prix_journee" required/>€</span>		
+						<label for="caracteristique">Quelque chose que vous<br>aimeriez que l'on sache (1500 caractères max): </label>
+						<textarea id="caracteristique" maxlength="300" class="cellule" type="text" name="caracteristique" placeholder="Ex : Vos qualités/défauts" rows="5" cols="50"></textarea>	
 			</div>	
 
 		</div>
 	</section>
 	<section class="formulaire-submit">
-		<input class="submit" type="submit" name="valider" value="SOUMETTRE" />
-		<input class="reset" type="reset" value="Effacer" />
+		<input class="submit" type="submit" name="valider" value="SOUMETTRE"  />
+		<input id="boutonReset" class="reset" type="reset" value="Effacer" />
 		
 				</form>
 	</section>
-	<hr>
+	<hr class="hr2">  
 	<section class="bas-de-page2">   
         <img class="image-bdp" src="images/logo.png" alt="Logo du site">
         <div class="payment-method">
@@ -133,7 +156,7 @@ include("fonctions.php");
         <i class="fas fa-envelope coord"></i> Mail : info@monagent.com <br>
         <i class="far fa-clock coord"></i> Dispo : 24h/24 7j/7</p>
     </section>
-    <hr>
+    <hr class="hr2">
     <footer class="footer2">
         <p class="copyright">&copy; 2021 - Mon Agent </p>
 		<p class="credits">Réalisé par Marius LACOUR, Kevin KAMENI, Jade GAY</p>
@@ -143,8 +166,8 @@ include("fonctions.php");
 	
 <?php
 if (isset ($_POST['valider'])) {
-	$nom=$_POST['nom'];
-	$prenom=$_POST['prenom'];
+	$nom=utf8_encode($_POST['nom']);
+	$prenom=utf8_encode($_POST['prenom']);
 	$sexe=$_POST['sexe'];
 	$caracteristique=$_POST['caracteristique'];
 	$prix_journee=$_POST['prix_journee'];
