@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 
 *{
     font-family: 'Montserrat'
@@ -20,6 +23,16 @@ header{
     /*background-color: rgba(28, 148, 28, 0.473);*/
 }
 
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bouton-reservations{
+    margin-right: 20px;
+}
 
 header img{
     width:100px;
@@ -83,24 +96,86 @@ nav {
     font-weight: 500;
 }
 
+hr{  
+    
+    position: absolute; /* postulat de départ */
+    right: 50%; left: 50%; /* à 50%/50% du parent référent */
+    transform: translate(-50%); /* décalage de 50% de sa propre taille */
+    width: 90%;
+    background-color: rgb(77, 76, 76);
+    border:none;
+    height: 2px;
+    margin: 0
+}
+
+hr.hr2{  
+    
+    position: absolute; /* postulat de départ */
+    right: 50%; left: 50%; /* à 50%/50% du parent référent */
+    transform: translate(-50%); /* décalage de 50% de sa propre taille */
+    width: 90%;
+    background-color: rgb(58, 83, 121);
+    border:none;
+    height: 2px;
+    margin: 0
+}
+
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------- index.php--------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+.trait{
+    width: 200px;
+    height: 2px;
+    background-color:rgb(202, 201, 201);
+    
+}
+/*infos du site*/
+.infos-box{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-around;
+    padding-bottom: 20px;  
+    height: 140px;
+    margin-bottom: 10px;
+}
+
+.infos-titre{
+    font-size: 35px;
+    color: rgb(202, 201, 201);
+    margin:0;
+    font-weight: 600;
+    
+}
+
+.infos-text{
+    color: rgb(202, 201, 201);
+    font-size: 17px;
+    margin:0;
+    text-align: center;
+    width: 90%;
+    
+
+    
+ 
+}
 
 
 /* services */
 
 .services{
+    position: relative;
     padding: 50px 0;
     background-color: rgb(59, 59, 59); 
 }
 
 .icon-div{
-    padding: 30px ;
+    padding: 60px 30px ;
     display :flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     
 }
 .service-item{
@@ -140,11 +215,13 @@ p{
 }
 .titre {
     margin-left:30px;
-    font-size: 40px;
-    font-family: 'DM Serif Text', serif;
+    font-size: 50px;
     font-weight: 100;
     position: relative;
-    color:rgb(255, 255, 255)
+    color:rgb(255, 255, 255); 
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 400;
+    line-height: 70px;
 }
 
 .titre::before{
@@ -168,6 +245,7 @@ p{
 .agent-box{
     position: relative;
     margin: 20px 20px;
+    margin-bottom: 50px;
 }
 
 .agent-nom{
@@ -210,10 +288,6 @@ img{
     border-top-right-radius: 5px;
     vertical-align:top;
 }
-
-.agent-box {
-    position: relative;
-    }
     
 .agent-detail2 {
     position: absolute;
@@ -229,11 +303,14 @@ img{
     justify-content: space-around;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+    cursor:auto;
     }
     
 .agent-box:hover .agent-detail2 {
-    height: 40%;
+    height: 22%;
     }
+
+
 
 .detail2{
     padding: 0px 20px;
@@ -246,6 +323,13 @@ img{
 
 .prix-detail{
     font-weight: 600;
+}
+
+.index-caracteristique{
+    text-align: center;
+    color: black;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 
@@ -292,13 +376,7 @@ img{
 
 /*pieds de page*/
 
-hr{
-    background-color: rgb(105, 105, 105);
-    border:none;
-    display: block;
-    height: 1px;
-    margin: 0
-}
+
 
 footer{
     background-color: rgb(59, 59, 59); 
@@ -349,8 +427,9 @@ footer a.cgv{
 
 
 .titre-form{
-    font-size: 35px ;
+    font-size: 55px ;
     color:rgb(255, 255, 255);
+    padding-left: 10px;
 }
 
 h2{
@@ -359,7 +438,7 @@ h2{
 }
 
 
-input[type=prix]{
+input[type=number]{
     width: 97%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -374,11 +453,13 @@ input[type=prix]{
 .submit{ 
     background-color: rgb(90, 150, 90);
     margin-bottom: 30px;
+    font-weight: 600;
 }
 
 .reset{
     margin: 0px 20px;
     background-color: rgb(92, 92, 92);
+    font-weight: 600;
 }
 
 
@@ -413,3 +494,258 @@ label{
     margin: 15 20px;
   }
 
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------- infos_supplementaires.php------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+section.top-page2 {
+    background-color: rgb(59, 59, 59);
+    /* background: url("../images/fond3.2.png") ;  */
+    /*background-size: cover; /*pour que le background couvre
+                            toute la page si on l'etire*/
+    background-size: 100% ;
+    background-size: cover;
+    padding: 20px; /*marge interieur*/
+}
+
+
+.sup-box{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top:50px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1300px;
+    
+}
+
+.sup-img{
+    border-radius: 5px;
+}
+
+.sup-right-box{
+    display: flex;
+  
+    flex-direction: column;
+    background-color: #a1a1a1;
+    height: 600px;
+    width: 750px;
+    border-radius: 5px;
+    margin-left: 20px;
+    color: white;
+}
+
+.sup-nom{
+    margin-top: 10px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 38px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    /* text-shadow: rgb(255, 255, 255) 1px 0 10px; */
+    text-shadow: 1px 1px 2px rgb(243, 243, 243), 0 0 1em rgb(255, 255, 255), 0 0 0.2em rgb(253, 253, 253);
+}
+
+
+.sous-le-nom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.note-box2{
+    margin-top: 5px; 
+    margin-left: 20px;
+    line-height: 28px;
+    padding-top: 35px;
+
+}
+
+.sup-note{
+    color:black;
+}
+
+.agent-note2{
+    color:rgb(240, 224, 0);
+    margin: 20px;
+}
+
+.nombre-note2{
+    color:rgb(0, 0, 0);
+    font-size: 15px;
+    padding: 10px;
+}
+
+.sup-detail2{
+    margin: 10px;
+    padding: 0px 20px;
+    color:black;
+    text-align: end;
+    width: 45%;
+    text-align: start;
+}
+
+
+.sup-prix-detail{
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.erreur{
+    color: rgb(136, 0, 0);
+}
+
+.sup-bas-box{
+    position: relative;
+    
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.sup-resa-titre{
+    font-size: 25px;
+    font-weight: 500;
+    color: black;
+}
+
+.sup-resa-box{
+    
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.sup-resa-left{
+    color: rgb(0, 0, 0);
+    width:50%;
+    padding-left: 20px;
+
+}
+
+.sup-resa-left-bottom{
+    margin-top: 5px;
+}
+
+.sup-titre-detail2{
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+}
+
+.sup-titre-detail3{
+    font-size: 19px;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+ 
+}
+
+.sup-texte-detail{
+    padding: 5px 20px;
+}
+
+.sup-resa-right{
+    width:50%
+}
+
+
+.sup-hr{  
+    position: relative; /* postulat de départ */
+
+    margin-top: 25px;
+    width: 99%;
+    background-color: rgb(77, 76, 76);
+    border:none;
+    height: 1px;
+    
+}
+
+/*Pop-up reservation*/
+
+.btnPopup{
+    background-color: rgb(57, 59, 63);
+    padding: 1em 2em;
+    cursor: pointer;
+    width: 150px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    height: 40px;
+    font-size: 16px;
+    padding:0;
+    margin-top: 5px;
+    margin-left:20px;
+    }
+
+.btnPopup:hover{
+    background-color: rgb(114, 114, 114);
+}
+
+
+
+.overlay {
+    position: fixed;
+    left: 0px;
+    top:0px;
+    background-color: rgba(0,0 ,0 , 0.5);
+    width: 100%;
+    height: 100%;
+    z-index:1;
+    display:none;
+    }
+
+.popup{
+    margin: 10% auto;
+    width : 18%;
+    background-color: rgb(243, 243, 243);
+    padding: 1em;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    }
+
+.btnClose {
+    float: right;
+    font-size:32px;
+    cursor: pointer;
+    color: rgb(26, 26, 26);
+    }
+
+
+.titre-liste-resa{
+    color:rgb(0, 0, 0);
+}
+
+.valider-note{
+    background-color: rgb(26, 26, 26);
+    width: 100px;
+}
+
+.consulter-date{
+    margin-top: 20px;
+}
+
+
+table{
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+  }
+
+th {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+
+tr:hover {
+    background-color: #e4e4e4;
+}
