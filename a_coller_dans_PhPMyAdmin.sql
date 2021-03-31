@@ -28,3 +28,39 @@ CREATE TABLE NOTES_AGENTS(
 	note FLOAT
 	);
 
+CREATE TABLE RESERVATIONS(
+	id_resa INT AUTO_INCREMENT,
+	PRIMARY KEY(id_resa),
+	id_client INT,
+	FOREIGN KEY(id_client) REFERENCES Clients(id),
+	id_agent INT,
+	FOREIGN KEY(id_agent) REFERENCES AGENTS_LISTE(id) ,
+	premier_jour DATE,
+	dernier_jour DATE
+	);
+
+-- INSERT INTO RESERVATIONS(id_resa,id_client,id_agent,premier_jour,dernier_jour)
+-- VALUES
+-- 	(33,1,2021-03-28,2021-03-31,0),
+-- 	(34,1,2021-04-04,2021-04-07,0),
+-- 	(35,1,2021-04-23,2021-04-29,0),
+-- 	(36,2,2021-03-28,2021-03-30,0),
+-- 	(37,3,2021-03-28,2021-03-31,0),
+-- 	(39,1,2021-06-09,2021-06-13,0),	
+-- 	(42,2,2021-03-31,2021-03-31,0),
+-- 	(43,1,2021-04-08,2021-04-22,0);
+
+CREATE TABLE CLIENTS(
+	id INT AUTO_INCREMENT,
+	PRIMARY KEY(id),
+	prenom VARCHAR(40),
+	nom VARCHAR(40),
+	mail TEXT,
+	mdp TEXT
+	);
+
+
+
+
+
+
