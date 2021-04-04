@@ -33,18 +33,18 @@ session_start();
                 <div class="logo2">
 
                 </div>
-                <div class="card-head">
+                <div class="card-head" style="text-align:center;">
                     <h3 class="header2">Connectez-vous</h3>
                 </div>
                 <div class="card-body">
                     <form id="frmLogin" method="post" action="requete_connexion.php">
                         <div class="form-group">
-                            <label class="form-label">Mail</label>
+                            <label class="form-label">Adresse e-mail *</label>
                             <input class="form-control" name="mail" type="email" required>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Mot de Passe</label>
-                            <input class="form-control" name="mdp"  type="password" required>
+                            <label class="form-label">Mot de passe *</label>
+                            <input class="form-control" name="mdp" type="password" required>
 
                         <div class="form-group">
                             <button type="submit" name ="valider" class="btn2" id="btnSignIn">Connectez-vous</button>
@@ -52,7 +52,7 @@ session_start();
                         <div class="erreur-mail">
                             <?php
                                 if ($_GET['erreur_mail']){
-                                    echo 'L\'adresse e-mail ou le mot de passe n\'est pas bon';
+                                    echo 'Identifiants incorrects, merci de vérifier ton email et mot de passe.';
                                 }
                             ?>
                         </div>
@@ -60,7 +60,7 @@ session_start();
                     </form>
                 </div>
               <div class="card-footer">
-                         <span>Vous n'avez pas de compte ? </br><a name="valider" href="nouveau_compte.php">Cliquez-ici</span></a>
+                         <span>Nouveau client ?</br><a name="valider" href="nouveau_compte.php">Cliquez-ici</span></a>
                         </div>
             </div>
         </div>

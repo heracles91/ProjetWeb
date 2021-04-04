@@ -1,4 +1,3 @@
-
 <?php
 // On démarre la session 
 session_start();
@@ -35,27 +34,47 @@ include("fonctions.php");
                 <div class="logo2">
 
                 </div>
-                <div class="card-head">
-                    <h3 class="header2">Connectez-vous</h3>
+                <div class="card-head" style="text-align:center;">
+                    <h3 class="header2">Inscrivez-vous</h3>
                 </div>
                 <div class="card-body">
                     <form id="frmLogin" method="post" action="ajout_client.php">
+                    <h4>Vos identifiants</h4>
                         <div class="form-group">
-                            <label class="form-label">Prénom</label>
-                            <input class="form-control" name="prenom"  type="text" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Nom</label>
-                            <input class="form-control" name="nom"  type="text" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Mail</label>
+                            <label class="form-label">Adresse e-mail *</label>
                             <input class="form-control" name="mail"  type="email" required>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Mot de Passe</label>
+                            <label class="form-label">Mot de passe *</label>
                             <input class="form-control" name="mdp"  type="password" required>
                         </div>
+                    <h4>Vos informations personnelles</h4>
+                        <div class="form-group">
+                            <label class="form-label">Civilité *</label>
+                            <input type="radio" name="gender" id="Mister" checked>
+                            <label for="Mister">M.</label><br>
+                            <input type="radio" name="gender" id="Madam">
+                            <label for="Madam">Mme.</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Prénom *</label>
+                            <input class="form-control" name="prenom"  type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Nom *</label>
+                            <input class="form-control" name="nom"  type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Votre pays *</label>
+                            <select class="form-control" name="nom"  type="text" required>
+                                <option>France</option>
+                                <option>Belgique</option>
+                                <option>Luxembourg</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                        <label class="form-label">Votre date de naissance</label>
+                        <input class="form-control" type="date">
                         
                         <div class="form-group">
                             <button type="submit" name='valider' class="btn2" id="btnSignIn">Créez votre compte</button>
@@ -63,7 +82,7 @@ include("fonctions.php");
                         <div class="erreur-mail">
                             <?php
                                 if ($_GET['erreur_mail']){
-                                    echo 'Cette adresse e-mail est déjà utilisée';
+                                    echo 'Cette adresse e-mail est déjà utilisée.';
                                 }
                             ?>
                         </div>
@@ -74,7 +93,7 @@ include("fonctions.php");
                 </div>
                 
                 <div class="card-footer">
-                        <span>Avez-vous déjà un compte ? </br><a href="connexion.php">Cliquez-ici</span></a>
+                        <span>Déjà client ?</br><a href="connexion.php">Cliquez-ici</span></a>
                 </div>
             </div>
         </div>
