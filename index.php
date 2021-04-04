@@ -183,7 +183,7 @@ include("fonctions.php");
     <footer>
         <p class="copyright">&copy; 2021 - Mon Agent </p>
         <p class="credits">Réalisé par Marius LACOUR, Kevin KAMENI, Jade GAY</p>
-        <a href="" class="cgv">Conditions générales de ventes</a>
+        <a href="cgv.pdf" class="cgv">Conditions générales de ventes</a>
     </footer>
     <!-- votre propre fichier dans le dossier de votre projet -->
     <script>

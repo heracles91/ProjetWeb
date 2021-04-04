@@ -66,7 +66,7 @@ include("fonctions.php");
                         </div>
                         <div class="form-group">
                             <label class="form-label">Votre pays *</label>
-                            <select class="form-control" name="nom"  type="text" required>
+                            <select class="form-control" type="text" required>
                                 <option>France</option>
                                 <option>Belgique</option>
                                 <option>Luxembourg</option>
