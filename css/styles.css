@@ -9,9 +9,11 @@
     font-family: 'Montserrat'
 }
 
-html{
+html  {
     scroll-behavior:smooth;
 }
+
+
 
 body{
     margin: 0 auto;
@@ -28,6 +30,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .bouton-reservations{
@@ -213,25 +216,6 @@ p{
     
     /* background-image: url("../images/fond1.jpg"); */
 }
-.titre {
-    margin-left:30px;
-    font-size: 50px;
-    font-weight: 100;
-    position: relative;
-    color:rgb(255, 255, 255); 
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 400;
-    line-height: 70px;
-}
-
-.titre::before{
-    content:"";
-    position: absolute;
-    background-color: rgb(202, 201, 201);
-    width: 50px;
-    height:7px;
-    bottom: 0;  
-}
 
 .div-best-agents{
     margin : 50px;
@@ -409,6 +393,81 @@ footer a.cgv{
     color: black;
 }
 
+
+
+
+.top-agents{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-end;
+
+}
+
+.titre {
+    margin-left:30px;
+    font-size: 50px;
+    font-weight: 100;
+    position: relative;
+    color:rgb(255, 255, 255); 
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 400;
+    line-height: 70px;
+}
+
+.titre::before{
+    content:"";
+    position: absolute;
+    background-color: rgb(202, 201, 201);
+    width: 50px;
+    height:7px;
+    bottom: 0;  
+}
+
+.titre2{
+    font-size: 28px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.tri-choix{
+    display: flex;
+    margin-left: 20px;
+
+}
+
+.titre3{
+    padding-top: 5px;
+    margin: 0;
+    font-size: 17px;
+    padding-left: 10px;
+}
+.tri-prix{
+    margin: 0;
+    display: flex;
+    flex-direction: column;  
+}
+.tri-sexe{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.bouton-tri{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background-color: rgb(202, 201, 201);
+    padding: 6px;
+    margin: 5px;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+.tri{
+    margin-right: 5%;
+    margin-left: 20px;
+}
+
 /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------- form.php--------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -427,6 +486,9 @@ footer a.cgv{
 
 
 .titre-form{
+    margin: 0;
+    margin-bottom: 40px;
+    margin-top: 40px;
     font-size: 55px ;
     color:rgb(255, 255, 255);
     padding-left: 10px;
@@ -456,13 +518,20 @@ input[type=number]{
     font-weight: 600;
 }
 
+.submit:hover{ 
+    background-color: rgb(72, 124, 72);
+   
+}
+
 .reset{
     margin: 0px 20px;
     background-color: rgb(92, 92, 92);
     font-weight: 600;
 }
 
-
+.reset:hover{ 
+    background-color: rgb(66, 66, 66);   
+}
 
 
 .formulaire-box{
@@ -494,6 +563,11 @@ label{
     margin: 15 20px;
   }
 
+.infos-inscription{
+    margin:0;
+    margin-left: 20px;
+}
+
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*---------------------------------------------------------- infos_supplementaires.php------------------------------------------------------------------*/
@@ -514,7 +588,8 @@ section.top-page2 {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    margin-top:50px;
+    margin-top:30px;
+    justify-content: center;
     margin-left: auto;
     margin-right: auto;
     max-width: 1300px;
@@ -523,11 +598,12 @@ section.top-page2 {
 
 .sup-img{
     border-radius: 5px;
+    margin-top: 30px;
 }
 
 .sup-right-box{
     display: flex;
-  
+    margin-top: 30px;
     flex-direction: column;
     background-color: #a1a1a1;
     height: 600px;
@@ -749,3 +825,66 @@ th {
 tr:hover {
     background-color: #e4e4e4;
 }
+
+tr{
+    background-color: rgb(243, 243, 243);
+}
+
+.resa-faite{
+    color:rgb(0, 110, 0);
+}
+
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------- compte.php----------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.compte{
+    padding: 60px;
+    }
+
+
+.titre-acceuil{
+    color: white;
+    font-size: 28px; /*taille police*/
+    /* font-family: 'Abril Fatface'; *//*police */
+    font-weight: 500; 
+}
+
+.nom-prenom{
+    color: white;
+    font-size: 70px; /*taille police*/
+    /* font-family: 'Abril Fatface'; *//*police */
+    font-weight: 500; 
+}
+
+.bouton-deconnexion{
+    color: rgb(233, 0, 0);
+}
+
+.client-non-connecte{
+    font-size: 70px ;
+    color :rgb(255, 255, 255);
+
+}
+
+.resa-compte{
+    margin-top: 30px;
+}
+
+
+.titre-resa-compte{
+    color :rgb(255, 255, 255);
+    font-size: 28px;
+}
+
+.table-resa-client{
+    margin: 10px;
+}
+
+.aucune-resa{
+    color : white;
+}
+
+
+
