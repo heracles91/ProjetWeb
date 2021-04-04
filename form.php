@@ -50,7 +50,7 @@ include("fonctions.php");
     <section class="top-page">
 		<div class="header">
             <header>
-                <img src="images/logo.png" alt="Logo du site">
+				<a href="index.php" class="logo"><img src="images/logo.png" alt="Logo du site"></a>
                 <nav>
                     <li><a class="boutton-haut" href="index.php">Accueil</a> </li>
                     <li><a class="boutton-haut" href="index.php #agents">Nos agents</a> </li> <!---->
@@ -81,6 +81,7 @@ include("fonctions.php");
     <section class="formulaire" id="formulaire">
         
             <h2  class="titre-form">Inscription</h2>
+			<h4 class="infos-inscription">Les inscriptions en tant qu'agents sont indépendantes et ne sont pas relatives à un compte</h4>
         
 		<br>
 		<div class="formulaire-box">
