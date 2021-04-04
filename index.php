@@ -1,6 +1,7 @@
 
 <?php
 // On démarre la session 
+
 session_start();
 
 if ($_SESSION['client_connecte']==False){
@@ -58,7 +59,7 @@ include("fonctions.php");
     <section class="top-page">
         <div class="header">
             <header>
-                <img src="images/logo.png" alt="Logo du site">
+                <a href="index.php" class="logo"><img src="images/logo.png" alt="Logo du site"></a>
                 <nav>
                     <li><a class="boutton-haut" href="">Accueil</a> </li>
                     <li><a class="boutton-haut" href="#agents">Nos agents</a> </li> 
@@ -117,20 +118,72 @@ include("fonctions.php");
         
     </section>
     <section class="meilleurs-agents" id="agents">
-        <h2 class="titre">
-            Nos agents
-        </h2>
+        <div class="top-agents">
+        
+            <h2 class="titre">
+                Nos agents
+            </h2>
+            <div class="tri">
+                <h2 class="titre2">
+                    Trier les agents :
+                </h2>
+                <div class="tri-choix">
+                    
+                    <div class="tri-prix">  
+                        
+                        <form action="#agents" class="prix" method="get">
+                        <SELECT id="prix" name="prix" required>
+                            <OPTION value="null">Prix</OPTION>
+                            <OPTION>Decroissant</OPTION>
+                            <OPTION>Croissant</OPTION>
+					    </SELECT>
+                        <input type="submit" name="valider" value="Valider" />  
+                        </form>
+                    </div>
+                    <div class="tri-sexe">
+                    <form action="#agents" class="prix" method="get">
+                        <SELECT id="sexe" name="sexe" required>
+                            <OPTION value="null">Sexe</OPTION>
+                            <OPTION>Femme</OPTION>
+                            <OPTION>Homme</OPTION>
+					    </SELECT>
+                        <input type="submit" name="valider" value="Valider" />  
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <div class="div-best-agents ">
+            
                 <?php
                 //on se connecte
                 connectMaBase();
                 //requete SQL
                 $sql='SELECT * FROM agents_liste';
+                $tri_prix_croissant = 'SELECT * FROM agents_liste ORDER BY prix_journee ASC';
+                $tri_prix_decroissant = 'SELECT * FROM agents_liste ORDER BY prix_journee DESC';
+                $tri_sexe_femme = 'SELECT * FROM agents_liste WHERE sexe="femme"';
+                $tri_sexe_homme = 'SELECT * FROM agents_liste WHERE sexe="homme"';
+                                          
+                if ($_GET['prix']=="Croissant"){
+                    $sql=$tri_prix_croissant;
+                }
+                if ($_GET['prix']=="Decroissant"){
+                    $sql=$tri_prix_decroissant;
+                }
+                if ($_GET['sexe']=="Femme"){
+                    $sql=$tri_sexe_femme;
+                }
+                if ($_GET['sexe']=="Homme"){
+                    $sql=$tri_sexe_homme;
+                }                
+
                 $req=mysql_query($sql) or die('ERREUR SQL ! <br>'.$sql.'<br>'.mysql_error());
                 
                 $x=0;
                     while ($data = mysql_fetch_array($req)) {
-                        list($moyenne_note2,$moyenne_note,$evaluation,$nombre_de_notes,$rajout_du_0,$verif)=note($data['id']); //on se sert de la fonction note() importée depuis fonctions.php
+                        list($moyenne_note2,$moyenne_note,$evaluation,$nombre_de_notes,$rajout_du_0,$verif)=note($data['id']); //on se sert de la fonction note() importée depuis fonctions.php                       
                         echo                                                        
                             '<a  href="infos_supplementaires.php?id='.$data['id'].'" class="agent-box numero'.$x.'">
                             
@@ -146,7 +199,7 @@ include("fonctions.php");
                                     <div class="detail2"> <span class="titre-detail">Prix </span>: <span class="prix-detail">'.$data['prix_journee'].'</span>€/jour</div> 
                                     <div class="index-caracteristique">
                                         <form name="infos-sup" method="post" action="infos_supplementaires.php?id='.$data['id'].'" > 
-                                        '.substr ($data['caracteristique'],0,60)// substr permet de ne renvoyer qu'une partie d'une chaine de caracteres (ici 60)
+                                        '.substr ($data['caracteristique'],0,50)// substr permet de ne renvoyer qu'une partie d'une chaine de caracteres (ici 50)
                                         .'... <input type="submit" name="valider" value="Voir plus" />     
                                         </form> 
                                     </div> 
