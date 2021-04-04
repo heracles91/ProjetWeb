@@ -182,6 +182,8 @@ if (isset ($_POST['valider'])) {
 	mysql_query($sql) or die('ERREUR SQL ! <br>'.$sql.'<br>'.mysql_error());
 	//on ferme la connexion(
 	mysql_close();
+	//on rajoute l'image téléchargé dans notre base de données pour qu'elle  puisse
+	//être réutilisée dans la page d'accueil
 	move_uploaded_file($_FILES["selfie"]["tmp_name"], 'images/'.$_FILES['selfie']['name']);
 	}
 ?>
